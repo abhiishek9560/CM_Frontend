@@ -260,10 +260,10 @@ const Signup = () => {
                                     required:true
                                   })} 
                                   className='h-12 w-[85%] pl-4 bg-gray-50/50 border-1 border-gray-200 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl transition-all duration-200 text-gray-900 placeholder:text-gray-500'>
-                                      <option value="">Select your role</option>
+                                      <option  value=""><span className='text-sm font-semibold text-gray-700'>What you are?</span></option>
                                       <option value="student">Student</option>
                                       <option value="faculty">Faculty</option>
-                                      <option value="admin">Admin</option>
+                                      {/* <option value="admin">Admin</option> */}
                                   </select>
                               </div>
 
@@ -284,7 +284,7 @@ const Signup = () => {
                           </div>
 
                                       {/* error messages */}
-                                      {errors.name && <div className='flex justify-center items-center m-0 p-0'><span className='text-sm text-red-500 font-light m-0 p-0'>{errors.name.message}</span></div>}
+                                      {errors.name && <div className='flex justify-center items-center m-0 p-0'><span className='text-sm text-red-500 font-semibold m-0 p-0'>{errors.name.message}</span></div>}
                                       {errors.email && <div className='flex justify-center items-center m-0 p-0'><span className='text-sm text-red-500 font-semibold m-0 p-0'>{errors.email.message}</span></div>}
                                       {errors.password && <div className='flex justify-center items-center m-0 p-0'><span className='text-sm text-red-500 font-semibold m-0 p-0'>{errors.password.message}</span></div>}
                           <button

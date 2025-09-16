@@ -4,9 +4,12 @@ import React, { useContext, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const SellItems = () => {
 
+
+    const navigate = useNavigate();
     const {register, handleSubmit, setValue, reset} = useForm();
     const {user,setUser} = useContext(UserContext);
     const API_URL = import.meta.env.VITE_API_URL;
@@ -39,7 +42,9 @@ const SellItems = () => {
             });
             console.log(response)
             reset()
+            navigate("/products-hub");
             toast.success("product uploaded");
+
         }catch(error){
             console.log(error.message);
         }
@@ -196,6 +201,7 @@ const SellItems = () => {
                     onChange={(e) =>{ handleImageUpload(e);
                                      setValue("images", e.target.files);
                     }} 
+                    required
                     />
                 </div>
 

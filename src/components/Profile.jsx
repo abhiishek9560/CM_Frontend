@@ -4,6 +4,7 @@ import Message from './Message'
 import { useForm } from 'react-hook-form'
 import { UserContext } from '../context/UserContext'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
   const {user, setUser} = useContext(UserContext);
@@ -12,6 +13,21 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [userJoinedDate, setUserJoinedDate] = useState('');
   const date = new Date(user.createdAt).toLocaleString().split(',')[0];
+  const navigate = useNavigate();
+
+
+  async function handleLogout(){
+          console.log("clicked")
+          try{
+              const response = await axios.post(`${API_URL}/user/logout`, {}, {withCredentials:true});
+              console.log(response.data);
+              setUser(null);
+              // setIsLoggedIn(false);
+              navigate("/");
+          }catch(error){
+              console.log(error.message|| error.response?.message);
+          }
+      };
 
   const handleEditFormSubmit = async(update)=>{
     try{
@@ -296,7 +312,7 @@ const Profile = () => {
           </button>
 
 
-          <button className='w-full flex gap-6 bg-red-400 py-2 px-4 border-2 border-red-300 rounded-md hover:bg-red-500 hover:border-gray-500 transition-all duration-100 cursor-pointer'>
+          <button onClick={handleLogout} className='w-full flex gap-6 bg-red-400 py-2 px-4 border-2 border-red-300 rounded-md hover:bg-red-500 hover:border-gray-500 transition-all duration-100 cursor-pointer'>
             <div className='p-2 bg-red-100 rounded-lg'>
               <LogOut size={20} className='text-red-700'/>
             </div>

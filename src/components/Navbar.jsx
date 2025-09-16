@@ -50,8 +50,8 @@ const Navbar = () => {
     const navItems = [
         { name: 'Home', path: '/', icon: Home },
         { name: 'Browse Items', path: '/products-hub', icon: Search },
-        { name: 'Sell Item', path: '/dashboard', icon: Plus },
-        { name: 'Dashboard', path: '/dashboard', icon: User },
+        { name: 'Sell Item', path: `${user? ("/dashboard"): ("/login")}`, icon: Plus },
+        { name: 'Dashboard', path: `${user? ("/dashboard"): ("/login")}`, icon: User },
         { name: 'Admin', path: '/admin', icon: Settings },
     ];
 

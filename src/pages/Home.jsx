@@ -7,6 +7,11 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const {user, setUser} = useContext(UserContext);
     const navigate = useNavigate();
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(()=>{
+        setAnimate(true);
+    },[])
     // const categories = [
     //     {name: 'Textbooks', icon: BookOpen, color: 'from-blue-500 to-blue-600'},
     //     {name: 'Electronics', icon: Laptop, color: 'from-purple-500 to-purple-600'},
@@ -74,7 +79,7 @@ const Home = () => {
          (
             <div className='flex justify-around items-center space-y-8 py-14 bg-gradient-to-r from-blue-500 to-green-500 gap-14 '>
 
-                <div className='flex flex-col justify-center items-start gap-5'>
+                <div className={`flex flex-col justify-center items-start gap-5 transform transition-transform duration-700 ease-in-out ${animate? 'translate-x-0': '-translate-x-full'} `}>
                     <div className='flex gap-2'>
                         <span className='text-4xl font-bold text-white'>Welcome back, {user.name.split(' ')[0]}! </span><div className='animate-bounce text-4xl'>👋</div>
                     </div>
@@ -157,7 +162,7 @@ const Home = () => {
             </div>
 
             {/* Third Box */}
-            <div className='flex flex-col justify-center items-center bg-gray-100 w-full mt-8 py-8'>
+            <div className='flex flex-col justify-center items-center bg-gray-100 w-full mt-8 py-8 mb-0 pb-12'>
                 <div className='flex flex-col justify-center items-center pt-8 gap-4'>
                     <span className='text-3xl font-bold'>Browse Categories</span>
                     <span className='text-lg font-normal text-gray-800'>Find what you need quickly in these popular categories</span>
@@ -171,6 +176,7 @@ const Home = () => {
                         {name: 'Sports', icon: Gamepad2, color: 'from-orange-500 to-orange-600'}
                     ].map((category, index) => (
                         <div key={index}
+                        onClick={()=>navigate("/products-hub")}
                         className='flex flex-col justify-center items-center gap-2 py-6 px-20 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 cursor-pointer'>
                             <div className={`p-4 bg-gradient-to-r ${category.color} rounded-xl`}>
                                 <category.icon className='text-white'/>
@@ -178,47 +184,34 @@ const Home = () => {
                             <span className="text-center font-semibold text-gray-900">{category.name}</span>
                         </div>
                     ))}
-                    {/* <div className="flex flex-col justify-center items-center gap-2 py-6 px-20 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer">
-                        <div className='p-4 bg-blue-600 rounded-xl'>
-                            <BookOpen className='text-white'/>
-                        </div>
-                        <span>
-                            Textbooks
-                        </span>
-                    </div> */}
-                    {/* <div className="flex flex-col justify-center items-center gap-2 py-6 px-20 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer ">
-                        <div className='p-4 bg-purple-600 rounded-xl'>
-                            <Laptop className='text-white'/>
-                        </div>
-                        <span>
-                            Electronics
-                        </span>
-                    </div> */}
-                    {/* <div className="flex flex-col justify-center items-center gap-2 py-6 px-20 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer ">
-                        <div className='p-4 bg-green-600 rounded-xl'>
-                            <ShoppingBag className='text-white'/>
-                        </div>
-                        <span>
-                            Furniture
-                        </span>
-                    </div> */}
-                    {/* <div className="flex flex-col justify-center items-center gap-2 py-6 px-20 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer ">
-                        <div className='p-4 bg-red-600 rounded-xl'>
-                            <Car className='text-white'/>
-                        </div>
-                        <span>
-                            Vehicles
-                        </span>
-                    </div> */}
-                    {/* <div className="flex flex-col justify-center items-center gap-2 py-6 px-20 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer ">
-                        <div className='p-4 bg-orange-600 rounded-xl'>
-                            <Car className='text-white'/>
-                        </div>
-                        <span>
-                            Sports
-                        </span>
-                    </div> */}
                 </div>
+            </div>
+
+            {/* Forth Box */}
+            {user? (
+
+                <div className='w-full bg-gradient-to-br from-gray-950 to-gray-600 flex flex-col justify-center items-center gap-4 py-16'>
+                    <p className='text-3xl font-bold text-white'>You need Something?</p>
+                    <p className='text-xl font-normal text-gray-400'>Browse and find what you need from your friends</p>
+                    <button className='p-4 bg-gray-300 flex justify-center items-center gap-2 px-8 rounded-lg cursor-pointer hover:scale-105 transition-all duration-200'>
+                        <span onClick={()=>navigate("/products-hub")}>Browse Items</span>
+                        <ArrowRight size={20}/>
+                        
+                    </button>
+                </div>
+            
+            ):(
+                <div className='w-full bg-gradient-to-br from-gray-950 to-gray-600 flex flex-col justify-center items-center gap-4 py-16'>
+                    <p className='text-3xl font-bold text-white'>Ready to Get Started?</p>
+                    <p className='text-xl font-normal text-gray-400'>Join thousands of students buying and selling on CollegeMarket</p>
+                    <button className='p-4 bg-gray-300 flex justify-center items-center gap-2 px-8 rounded-lg cursor-pointer hover:scale-105 transition-all duration-200'>
+                        <span onClick={()=>navigate("/signup")}>Create Your Account</span>
+                        <ArrowRight size={20}/>
+                        
+                    </button>
+                </div>
+            )}
+            <div>
             </div>
         </div>
 
