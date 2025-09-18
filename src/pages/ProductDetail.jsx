@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Calendar, Clock, CreditCardIcon, Cross, IndianRupee, MapPin, MessageCircle, Phone, QrCode, Shield, ShoppingBag, ShoppingBasket, ShoppingCart, Timer, Truck, Turtle, Upload, User, X } from 'lucide-react';
+import { Calendar, Clock, IndianRupee, MapPin, MessageCircle, Phone, QrCode, Shield, ShoppingBag, ShoppingBasket, ShoppingCart, Timer, Truck, Turtle, Upload, User, X } from 'lucide-react';
 import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import OrderSummary from '../components/OrderSummary';
