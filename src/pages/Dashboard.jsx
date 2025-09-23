@@ -26,7 +26,7 @@ const Dashboard = () => {
         {id: "purchased", label: "Purchased", icon: ShoppingBag, color: "from-indigo-500 to-purple-500"},
     ]
   return (
-    <div className='w-[83%] ml-32 flex flex-col items-center gap-8 mt-10'>
+    <div className='w-[83%] ml-32 flex flex-col items-center gap-8 mt-10 pb-10'>
         
         {/* Dashboard banner */}
         <div className=' bg-white w-full flex flex-col justify-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-9 px-8 rounded-2xl gap-2 shadow-lg'>
