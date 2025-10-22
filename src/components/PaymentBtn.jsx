@@ -44,10 +44,9 @@ const PaymentBtn = ({productId, deliveryAddress, amount}) => {
                     razorpay_payment_id: response.razorpay_payment_id,
                     razorpay_signature: response.razorpay_signature,
                     orderId: orderResponse.data.order._id
-                });
+                }, {withCredentials:true});
 
                 if(verifyRes.data.success){
-                    alert("Payment Successful");
                     console.log(verifyRes.data);
                     navigate(`/payment-success/${orderResponse.data.order._id}`);
                     
