@@ -118,7 +118,7 @@ const PaymentSuccess = () => {
                 <div className='flex flex-col gap-1'>
                     <span className='text-md font-bold text-black'>{product?.title}</span>
                     <span className='text-sm font-normal text-gray-500'>Sold by: {seller?.name}</span>
-                    <span className='text-md font-bold text-black'>₹{product?.price}</span>
+                    <span className='text-md font-bold text-black'>₹{order?.amount}</span>
                 </div>
             </div>
 
