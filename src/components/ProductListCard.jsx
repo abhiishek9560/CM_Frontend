@@ -56,7 +56,7 @@ const ProductListCard = (props) => {
     }, [props.seller])
     
   return (
-    <div onClick={handleCardClick} className={`flex flex-col bg-white rounded-lg shadow-lg cursor-pointer hover:shadow-xl relative transform transition-all hover:scale-105 duration-200 ${checkShadowColor(props.status)}`}>
+    <div onClick={handleCardClick} className={`flex flex-col bg-white rounded-lg shadow-lg cursor-pointer hover:shadow-xl relative transform transition-all hover:scale-105 hover:-translate-y-3 duration-400 ${checkShadowColor(props.status)}`}>
         {/* image */}
         <div className='h-[200px]'>
             <img className='rounded-t-lg object-cover h-full w-full' src={props.image[0]} 
