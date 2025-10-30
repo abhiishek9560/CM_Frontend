@@ -39,7 +39,7 @@ const DeliveryConfirmationPage = () => {
     const fetchProduct = async()=>{
         try{
             const product_id = order.product;
-            const response = await axios.get("http://localhost:3000/market/get-product", {
+            const response = await axios.get(`${API_URL}/market/get-product`, {
                 params:{product_id}
             });
             console.log(response.data);
@@ -60,7 +60,7 @@ const DeliveryConfirmationPage = () => {
     const fetchBuyer = async()=>{
         try{
             const seller_id = order.buyer;
-            const response = await axios.get("http://localhost:3000/user/get-seller", {
+            const response = await axios.get(`${API_URL}/user/get-seller`, {
                 params:{seller_id}
             });
             console.log(response.data);
@@ -79,7 +79,7 @@ const DeliveryConfirmationPage = () => {
 
     const handleDeliveryConfirmationClick = async ()=>{
         try{
-            const response = await axios.post("http://localhost:3000/payment/confirm-order-delivery", {orderId: order_id});
+            const response = await axios.post(`${API_URL}/payment/confirm-order-delivery`, {orderId: order_id});
             console.log(response.data);
             toast.success("Delivery Confirmed");
             toast.success("Thank You seller")
