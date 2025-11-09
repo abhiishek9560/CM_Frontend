@@ -228,7 +228,7 @@ const ProductDetail = () => {
             <div className='flex flex-col px-6 gap-3 mt-4 p-4 rounded-lg shadow-lg'>
                 <span className='text-xl font-semibold text-gray-900'>Seller Information</span>
                 <div className='flex items-center gap-4'>
-                    <div className='p-3 text-2xl font-semibold text-white bg-gradient-to-r from-blue-500 to-pink-500 rounded-full'>AB</div>
+                    <div className='h-14 w-14 flex justify-center items-center text-2xl font-semibold text-white bg-gradient-to-r from-blue-500 to-pink-500 rounded-full'>{seller?.name.slice(0,1)}</div>
                     <span className='text-lg font-semibold text-gray-900'>{seller?.name}</span>
                 </div>
 

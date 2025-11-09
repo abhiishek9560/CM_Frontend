@@ -97,7 +97,6 @@ const DeliveryConfirmationPage = () => {
         <div className='w-full p-3.5 shadow-sm bg-white'>
             <div className='flex gap-4 ml-80'>
                 <div className='flex justify-center items-center h-10 w-10 rounded-full bg-gray-200'>
-                    <Package size={20}/>
                 </div>
                 <div className='flex flex-col '>
                     <span className='text-xl font-bold text-black'>Delivery Confirmation</span>

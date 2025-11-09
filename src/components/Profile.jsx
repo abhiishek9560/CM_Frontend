@@ -1,4 +1,4 @@
-import { Briefcase, Building, Calendar, Edit3, Key, LogOut, Mail, MapPin, Phone, Shield, User } from 'lucide-react'
+import { AlertCircle, Briefcase, Building, Calendar, Edit3, ExternalLink, Key, LogOut, Mail, MapPin, Phone, Shield, User } from 'lucide-react'
 import React, { useContext, useState } from 'react'
 import Message from './Message'
 import { useForm } from 'react-hook-form'
@@ -49,6 +49,30 @@ const Profile = () => {
 
   return (
     <div className='w-full flex flex-col justify-center items-center py-8 px-8 gap-8'>
+      {user.kyc.kycStatus === "VERIFIED"? (
+        <div>
+          {/* Do nothing */ }
+        </div>
+      ):
+      (
+        <div className='w-full flex items-center justify-between p-6 px-7 border-1 border-gray-200 border-l-4 border-l-red-500 rounded-lg bg-red-50 shadow-md'>
+          <div className='flex justify-between items-center gap-4'>
+            <div className='p-3 bg-red-100 rounded-lg'>
+              <AlertCircle size={24} className='text-red-600'/>
+            </div>
+            <div className='flex flex-col justify-center items-start'>
+              <p className='text-md font-medium text-black'>KYC Verification Required</p>
+              <p className='text-sm font-light text-gray-600'>Complete your KYC verification on Razorpay to start selling products and receive payments.</p>
+            </div>
+          </div>
+
+          <button className='flex justify-center items-center gap-2 bg-red-500 py-2.5 px-4 rounded-md cursor-pointer hover:bg-red-700 transition-all duration-100'>
+            <ExternalLink size={18} className='text-white' />
+            <p className='text-white text-sm font-medium'>Complete KYC</p>
+          </button>
+          
+        </div>
+      )}
       {/* profile banner */}
       <div className='w-full flex items-center gap-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-8 py-10 rounded-2xl text-white'>
         <div className='bg-white/20 p-6 rounded-full'>
